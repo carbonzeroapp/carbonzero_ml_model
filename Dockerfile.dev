@@ -1,0 +1,11 @@
+FROM python:3.10-slim-buster
+
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /carbonzero-ml-model-dir
+
+COPY ./carbonzero_ml_model/requirements.txt ./requirements.txt
+COPY ./carbonzero_ml_model/.env.dev ./.env.dev
+RUN pip3 install -r requirements.txt
+
+COPY ./carbonzero_ml_model/. .
